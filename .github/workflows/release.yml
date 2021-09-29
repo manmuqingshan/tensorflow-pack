@@ -45,7 +45,11 @@ jobs:
       - name: Fix various issues in list of modules
         run : 
           docker exec build_runtime /bin/bash /workspace/host/tensorflow-pack/tensorflow-build/hotfix.sh
-      
+
+    
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: Build TensorFlow Pack and run PackChk
         run : 
           docker exec build_runtime /bin/bash /workspace/host/tensorflow-pack/tensorflow-build/build_r.sh
